@@ -350,7 +350,7 @@ dispatch_queue_t SerialQueue = nil;
 		for (BHFormViewRow *row in _Rows) {
 			NSInteger visibleMinIndex = NSNotFound;
 			NSInteger visibleMaxIndex = 0;
-			if (row.visible) {
+			if (row.visible || row.hasVeryHighCell) {
 				CGRect *rects = row.rectsForCells;
 				BOOL *columnVisibles = row.columnsVisible;
 				NSInteger columnCount = row.columnCount;
@@ -562,6 +562,12 @@ dispatch_queue_t SerialQueue = nil;
 	}
 }
 
+- (void)setCellScale:(CGFloat)cellScale
+{
+//    for (BHFormViewRow *row in _Rows) {
+//        row.
+//    }
+}
 - (void)itemClicked:(UIButton *)sender
 {
     if ([_delegate respondsToSelector:@selector(formView:didTapColumn:inRow:)]) {
